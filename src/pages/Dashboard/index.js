@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Dashboar() {
-  return <div>Dashboar</div>;
+export default function Dashboad() {
+  return <h1>Dashboad</h1>;
 }
