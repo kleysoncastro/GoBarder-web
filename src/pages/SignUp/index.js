@@ -1,22 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
+import { signUpRequest } from '../../store/modules/auth/actions';
+
 import logo from '~/assets/logo.svg';
 
+const shcema = Yup.object().shape({
+  name: Yup.string().required('Nome completo'),
+  email: Yup.string()
+    .email('Seu de cadastro')
+    .required('Email é obrigatorio'),
+  password: Yup.string()
+    .min(6, 'No minimo 6 caracteres')
+    .required('Senha é obrigatoria'),
+});
+
 export default function SignUp() {
-  const shcema = Yup.object().shape({
-    name: Yup.string().required('Nome completo'),
-    email: Yup.string()
-      .email('Seu de cadastro')
-      .required('Email é obrigatorio'),
-    password: Yup.string()
-      .min(6, 'No minimo 6 caracteres')
-      .required('Senha é obrigatoria'),
-  });
-  function handleSubmit(data) {
-    console.tron.log(data);
+  const dispatch = useDispatch();
+  function handleSubmit({ name, email, password }) {
+    dispatch(signUpRequest(name, email, password));
   }
   return (
     <>
