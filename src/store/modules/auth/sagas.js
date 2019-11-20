@@ -51,9 +51,7 @@ export function* signUp({ payload }) {
 }
 
 export function setToken({ payload }) {
-  console.tron.log('antes');
   if (!payload) return;
-  console.tron.log('depois');
 
   const { token } = payload.auth;
 
