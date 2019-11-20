@@ -18,7 +18,8 @@ export default function Notifications() {
 
   const hasUnread = useMemo(
     () => notifications.find(notification => !!notification.read === false),
-    [notifications]);
+    [notifications]
+  );
 
   useEffect(() => {
     async function loadNotification() {
@@ -67,11 +68,11 @@ export default function Notifications() {
               <time>{notification.timeDistance}</time>
               {!notification.read && (
                 <button
-                onClick={() => handleMarkAsRead(notification._id)}
-                type="button"
-              >
-                Marcar como lida
-              </button>
+                  onClick={() => handleMarkAsRead(notification._id)}
+                  type="button"
+                >
+                  Marcar como lida
+                </button>
               )}
             </Notification>
           ))}
