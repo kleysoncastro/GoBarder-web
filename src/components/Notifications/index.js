@@ -17,7 +17,7 @@ export default function Notifications() {
   const [notifications, setNotifications] = useState([]);
 
   const hasUnread = useMemo(
-    () => notifications.find(notification => !!notification.read === false),
+    () => !!notifications.find(notification => notification.read === false),
     [notifications]
   );
 
@@ -38,7 +38,7 @@ export default function Notifications() {
     }
 
     loadNotification();
-  }, [notifications, notifications.createdAt]);
+  }, []);
 
   function handleToggleVisible() {
     setVisible(!visible);
@@ -49,7 +49,7 @@ export default function Notifications() {
 
     setNotifications(
       notifications.map(notification =>
-        notification._id === id ? { ...notification, red: true } : notification
+        notification._id === id ? { ...notification, read: true } : notification
       )
     );
   }
