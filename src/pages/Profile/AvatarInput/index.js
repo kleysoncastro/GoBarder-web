@@ -20,28 +20,36 @@ export default function AvatarInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+  }, [ref.current]);
 
   async function handleChange(e) {
     const data = new FormData();
     data.append('file', e.target.files[0]);
+
     const response = await api.post('/files', data);
 
-    const [id, url] = response.data;
+    console.tron.log(response);
+    const { id, url } = response.data;
 
     setFile(id);
     setPreview(url);
   }
+
   return (
     <Container>
       <label htmlFor="avatar">
-        <img src={preview} alt="" />
+        <img
+          src={
+            preview || 'https://api.adorable.io/avatars/50/abott@adorable.png'
+          }
+          alt="avatar"
+        />
         <input
           type="file"
           id="avatar"
           accept="image/*"
-          onChange={handleChange}
           data-file={file}
+          onChange={handleChange}
           ref={ref}
         />
       </label>
