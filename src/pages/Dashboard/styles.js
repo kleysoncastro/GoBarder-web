@@ -36,11 +36,15 @@ export const Time = styled.li`
   border-radius: 4px;
   background: #fff;
 
+  &:hover {
+    background: #ddd;
+  }
+
   opacity: ${props => (props.past ? 0.6 : 1)};
 
   strong {
     display: block;
-    color: ${props => (props.avalable ? '#77dd77' : '#7159c1')};
+    color: ${props => (props.available ? '#77dd77' : '#7159c1')};
     font-size: 20px;
     font-weight: normal;
   }

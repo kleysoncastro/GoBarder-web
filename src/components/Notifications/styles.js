@@ -37,6 +37,7 @@ export const NotificationList = styled.div`
   padding: 15px 5px;
   display: ${props => (props.visible ? 'block' : 'none')}
 
+
   &::before {
     content: '';
     position: absolute;
@@ -48,6 +49,7 @@ export const NotificationList = styled.div`
     border-right: 20px solid transparent;
     border-bottom: 20px solid rgba(0, 0, 0, 0.6);
   }
+
 `;
 
 export const Scroll = styled(PerfectScrollbar)`
