@@ -41,10 +41,10 @@ export default function Dashboad() {
         const checkDate = setSeconds(setMinutes(setHours(date, hour), 0), 0);
         const compareDate = utcToZonedTime(checkDate, timezone);
 
-        const ts = response.data.find(a => {
+        /*    const ts = response.data.find(a => {
           const ava = parseISO(a.date).getHours() ? hour : null;
           return { ava };
-        });
+        }); */
 
         return {
           time: `${hour}:00h`,
